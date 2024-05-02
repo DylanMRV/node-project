@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+
+<html>
+
+<head>
+	<title>Weather</title>
+	<link rel="icon" href="/img/Sleepy.png">
+	<link rel="stylesheet" href="/css/styles.css">
+</head>
+
+<body>
+	<div class="main-content">
+		{{>header}}
+		
+		<p>Weather Page</p>
+		<form>
+			<input placeholder="Location">
+			<button>Search</button>
+		</form>
+		
+		<p id="message-1"></p>
+		<p id="message-2"></p>
+	</div>
+	
+	{{>footer}}
+	
+	<!-- the script tag is here because it it were in the head, /js/app.js would execute before the program got to the input button, meaning even if the user submitting a location 
+	in the button, there's nothing for app.js to use in <form> because its executing before the prgram gets to <form> (since HTML files are read from top to bottom). so the input 
+	will be null and you'll get an error. -->
+	<script src="/js/app.js"></script>
+</body>
+
+</html>

@@ -1,0 +1,56 @@
+body { /*so body tag in the html files is the content this block applies to*/
+	color: #333333; /*for entire site since in body*/ /*#333333 is hex color, could be color in words: ex. grey*/
+	font-family: Times New Roman; /*styles to individual characters*/
+	max-width: 650px; /*max width for cite*/
+	margin: 0 auto; /*margin is a spacing property. syntax: margin value for top & bottom [*space*] second value is margin value for left & right*/
+	padding: 0 16px; /*padding is a spacing property, provides additional padding, will provide minimum space around content: useful if window is not full screen and is smashed up against the left side of the screen. a single value will apply value to all sides. syntax: additional space for top & bottom [*space*] second value is additional space for left & right*/
+	
+	display: flex;
+	flex-direction: column; /*default is row, which has everything go from left to right, makes page look weird sometimes, column will have everything go from top to bottom*/
+	min-height: 100vh; /*setting min height to browser's height (100vh [stands for viewport height, so 100% of viewport {the box where content shows up}]). to make page fill whole window*/
+}
+
+.main-content {
+	flex-grow: 1; /*allows an elementt to grow to take up as much space as it needs. tells flex box content shoud take up all leftover space*/
+}
+
+footer {
+	color: #888888;
+	border-top: 1px solid #eeeeee; /*sets a border at the specified location of page: i.e. border-bottom, border-left, border-right. syntax: width_value type_of_border color. everything in footer will be this color*/
+	margin-top: 16px;
+	padding: 16px 0;
+	/*margin-top and padding will put their respective space below the border, since border is applied to top (above all of footer, and margin-top and padding apply around content)*/
+}
+
+header {
+	margin-top: 16px;
+	margin-bottom: 48px;
+}
+
+h1 {
+	font-size: 64px;
+	margin-bottom: 16px;
+}
+
+header a { /*header before 'a' means to target a tag (in this case our links) inside header.hbs*/ /*we want to target header, or all links in a tag throughout site will be this*/
+	color: #888888;
+	margin-right: 16px;
+	text-decoration: none; /*underlines are the default for links, but to get rid of them do this*/
+}
+
+.portrait { /*instead of img so as to not target all images*/
+	width: 250px;
+}
+
+input { /*to stylize the search bar in weather page, when this file is loaded in index.hbs, this file will match the search bar tag 'input' and use this code.*/
+	border: 1px solid #cccccc; /*width type_of_border color*/
+	padding: 8px; /*puts space between text and border*/
+}
+
+button { /*to stylize the search bar button in weather page, when this file is loaded in index.hbs, this file will match the search button tag 'button' and use this code.*/
+	cursor: pointer; /*mouse effect that shows the button is something you can click, turns mouse into a hand with index finger up*/
+	border: 1px solid #888888;
+	background: #888888;
+	color: white;
+	padding: 8px;
+}
