@@ -1,4 +1,4 @@
-console.log("Client side JS file loaded");
+//This is a Client side JS file
 
 //selects tag "form" from index.hbs (since it uses this file) this sites that tag and uses what's in it. what comes back is a JS representation of that element.
 const weatherForm = document.querySelector("form");
