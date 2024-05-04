@@ -24,7 +24,8 @@ weatherForm.addEventListener("submit", (e) => {
 	messageTwo.textContent = "";
 	
 	//using fetch will start an asyncronous IO opperation (like calling a request in node), so we don't have access to data right away, so we provide a function that will run in future when data is available.
-	fetch("http://localhose:3000/weather?address=" + location).then((response) => {
+	//http://localhose:3000/weather?address in "" before + location, if we were not using heroku.
+	fetch("/weather?address=" + location).then((response) => {
 		response.json().then((data) => {
 			if (data.error) {
 				messageOne.textContent = data.error;

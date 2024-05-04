@@ -8,6 +8,11 @@ const forecast = require("./utils/forecast");
 
 const app = express(); //we configure the server by using methods provided on the application itself
 
+//since we provided logical 'or' with 3000 we could leave it even without heroku since it will use 3000 if process.env.PORT fails in abscence of heroku.
+//this line is for heroku to be able to use this file. 
+//process.env is an object where we can access environment variables, heroku will set this. this sets port equal to environment variable value.
+const port = process.env.PORT || 3000; 
+
 //define paths for express config
 const publicDirectoryPath = path.join(__dirname, "../public"); // ../ goes up a directory from the folder this file (app.js) lives in
 const viewsPath = path.join(__dirname, "../templates/views"); //you don't need this if you don't want to rename the views folder [to templates, then later added a sub-folder named views which holds the style hbs files]. with this we could put views in a nested directory by updating this path
@@ -121,11 +126,20 @@ app.get("*", (req, res) => {
 		errorMessage: "404 Error: Page Not Found"
 	});
 });
+
+//for heroku's provided port value
+app.listen(port, () => {
+	console.log("Server is up on port " + port); //this will not display to someone in browser
+});
+
 /*this starts up the server and has it listen on a specific port. 3000 is a common development port. this is not the default port, when you visit a website you
 don't provide the port because there are default ports, for an http site it's port 80*/
 //the callback function executes when server is up and running. the process of starting a server is an asyncronous process, although it will happen almost instantly
+//use this app.listen to run this project locally on computer. if this block used, would not have app.listen for heroku, or port constant near top (but since we provided logical or with 3000 we could leave it even without heroku), on this file.
+/*
 app.listen(3000, () => {
 	console.log("Server is up on port 3000"); //this will not display to someone in browser
 });
+*/
 
 //localhost:3000
