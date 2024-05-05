@@ -27,6 +27,7 @@ weatherForm.addEventListener("submit", (e) => {
 	//http://localhose:3000/weather?address in "" before + location, if we were not using heroku.
 	fetch("/weather?address=" + location).then((response) => {
 		response.json().then((data) => {
+			console.log(data);
 			if (data.error) {
 				messageOne.textContent = data.error;
 			} else {
