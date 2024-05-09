@@ -44,22 +44,22 @@ app.use(express.static(publicDirectoryPath));
 app.get("", (req, res) => {
 	res.render("index", {
 		title: "Weather",
-		name: "Gabe Newell"
+		name: "Dylan Vukelich"
 	});
 });
 
 app.get("/about", (req, res) => {
 	res.render("about", {
 		title: "About",
-		name: "Gabe Newell"
+		name: "Dylan Vukelich"
 	});
 });
 
 app.get("/help", (req, res) => {
 	res.render("help", {
-		helpText: "Error has occurred",
+		helpText: "Help Page",
 		title: "Help",
-		name: "Gabe Newell"
+		name: "Dylan Vukelich"
 	});
 });
 
@@ -112,7 +112,7 @@ app.get("/products", (req, res) => {
 app.get("/help/*", (req, res) => {
 	res.render("404" /*because we want to use 404.hbs just with different content than in the general 404 page below*/, {
 		title: "404",
-		name: "Gabe Newell",
+		name: "Dylan Vukelich",
 		errorMessage: "404 Error: Help Article Not Found"
 	});
 });
@@ -122,7 +122,7 @@ app.get("/help/*", (req, res) => {
 app.get("*", (req, res) => {
 	res.render("404", {
 		title: "404",
-		name: "Gabe Newell",
+		name: "Dylan Vukelich",
 		errorMessage: "404 Error: Page Not Found"
 	});
 });
